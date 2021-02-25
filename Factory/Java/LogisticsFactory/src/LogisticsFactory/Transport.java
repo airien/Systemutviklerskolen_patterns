@@ -16,8 +16,10 @@ public abstract class Transport {
 			return "No points to transport on";
 		
 		StringBuilder builder = new StringBuilder(String.format("Transporting by %s through points\n", _type));
-		for(Coordinate c : _transportPoints)
+		for(Coordinate c : _transportPoints) {
 			builder.append(c.toString());
+			builder.append(" ");
+		}
 		
 		return builder.toString();
 	}
