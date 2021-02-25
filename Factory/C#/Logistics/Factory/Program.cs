@@ -6,11 +6,7 @@ namespace Factory
     {
         static void Main(string[] args)
         {
-            var coords = new Coordinate[3];
-            coords[0] = new Coordinate("Harbour", 1,3);
-            coords[1] = new Coordinate("MainRoad", 4,7);
-            coords[2] = new Coordinate("Warehouse", 8,45);
-            Transport truck = LogisticsFactory.CreateTransport("road", "boxes", coords);
+            Transport truck = LogisticsFactory.CreateTransport("road", "boxes", new Coordinate("Harbour", 1, 3), new Coordinate("Warehouse", 8, 45));
 		
             var DoTransportPlan = truck.DoTransport();
             var delivery = truck.Deliver();
@@ -18,15 +14,8 @@ namespace Factory
             Console.WriteLine(DoTransportPlan);
             Console.WriteLine("delivering....");
             Console.WriteLine(delivery);
-		
-		
-            var boatCoords = new Coordinate[3];
-            boatCoords[0] = new Coordinate("Harbour", 1,3);
-            boatCoords[1] = new Coordinate("River", 2,7);
-            boatCoords[2] = new Coordinate("Warehouse1", 40,34);
-            boatCoords[2] = new Coordinate("Warehouse2", 43,34);
-            boatCoords[2] = new Coordinate("Warehous3e", 45,34);
-            Transport boat = LogisticsFactory.CreateTransport("sea", "lumber", boatCoords);
+	
+            Transport boat = LogisticsFactory.CreateTransport("sea", "lumber", new Coordinate("Harbour", 1, 3), new Coordinate("Warehouse", 45, 34));
 		
             var boatDoTransportPlan = boat.DoTransport();
             var boatdelivery = boat.Deliver();
@@ -37,10 +26,7 @@ namespace Factory
             Console.WriteLine(boatdelivery);
 		
 
-            var airCoords = new Coordinate[3];
-            airCoords[0] = new Coordinate("Harbour", 1,3);
-            airCoords[1] = new Coordinate("River", 2,7);
-            Transport air = LogisticsFactory.CreateTransport("air", "wonders", airCoords);
+            Transport air = LogisticsFactory.CreateTransport("air", "wonders", new Coordinate("Harbour", 1, 3), new Coordinate("Warehouse40", 256, 700));
 		
             var airDoTransport = air.DoTransport();
             var airdelivery = air.Deliver();
